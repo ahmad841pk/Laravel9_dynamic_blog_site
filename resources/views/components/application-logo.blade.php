@@ -1,0 +1,1 @@
+<img src="{{ asset('logo/logo-new.png') }}" alt="theHexaa" width="200px">
