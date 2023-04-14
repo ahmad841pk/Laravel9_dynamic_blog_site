@@ -2,7 +2,7 @@
 <html lang="en">
 
     <head>
-        
+
         <meta charset="utf-8" />
         <title>Login | Admin</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -35,26 +35,30 @@
                                 </a>
                             </div>
                         </div>
-    
+
                         <h4 class="text-muted text-center font-size-18"><b>Sign In</b></h4>
-    
+                        @if($errors->any())
+                            @foreach ($errors->all() as $error)
+                                <div class="text-danger">{{ $error }}</div>
+                            @endforeach
+                        @endif
                         <div class="p-3">
-                            
+
                                 <form method="POST" class="form-horizontal mt-3" action="{{ route('login') }}">
                                     @csrf
-    
+
                                 <div class="form-group mb-3 row">
                                     <div class="col-12">
                                         <input id="username" class="form-control" name="username" type="text" required autofocus placeholder="Username">
                                     </div>
                                 </div>
-    
+
                                 <div class="form-group mb-3 row">
                                     <div class="col-12">
                                         <input class="form-control" id="password" type="password" name="password" required autocomplete="current-password" placeholder="Password">
                                     </div>
                                 </div>
-    
+
                                 <div class="form-group mb-3 row">
                                     <div class="col-12">
                                         <div class="custom-control custom-checkbox">
@@ -63,13 +67,13 @@
                                         </div>
                                     </div>
                                 </div>
-    
+
                                 <div class="form-group mb-3 text-center row mt-3 pt-1">
                                     <div class="col-12">
                                         <button class="btn btn-info w-100 waves-effect waves-light" type="submit">Log In</button>
                                     </div>
                                 </div>
-    
+
                                 <div class="form-group mb-0 row mt-2">
                                     <div class="col-sm-7 mt-3">
                                         <a href="{{ route('password.request') }}" class="text-muted"><i class="mdi mdi-lock"></i> Forgot your password?</a>
@@ -118,9 +122,9 @@
 
     case 'error':
     toastr.error(" {{ Session::get('message') }} ");
-    break; 
+    break;
  }
- @endif 
+ @endif
 </script>
     </body>
 </html>
